@@ -1,0 +1,383 @@
+:root {
+    --burgundy: #800000;
+    --gold: #D4AF37;
+    --glossy-gold: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+    --white: #ffffff;
+    --light-grey: #f4f6f8;
+    --dark-grey: #1a1a1a;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --transition: all 0.3s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--light-grey);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Container for balancing empty space elegantly at sides */
+.content-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Offset for Fixed Navbar */
+.main-content {
+    margin-top: 130px; /* Accounts for the 100px navbar height + safety padding */
+}
+
+/* --- Navbar Modifications --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(128, 0, 0, 0.98);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    border-bottom: 2px solid var(--gold);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo img {
+    color: var(--white);
+    display: flex;
+    height: 100px;
+    width: 100px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after, 
+.nav-link.active::after {
+    width: 100%;
+}
+
+.contact-btn {
+    background: var(--glossy-gold);
+    color: var(--dark-grey) !important;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.4);
+}
+
+.hamburger {
+    display: none;
+    color: var(--white);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* --- Philosophy Section Design --- */
+.philosophy-section {
+    padding: 40px 0;
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.about-text h3 {
+    font-size: 2.2rem;
+    color: var(--burgundy);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.gold-bar-small {
+    width: 60px;
+    height: 3px;
+    background: var(--gold);
+    margin-bottom: 25px;
+}
+
+.philosophy-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    background: var(--white);
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.gold-icon {
+    color: var(--gold);
+    font-size: 1.3rem;
+    margin-top: 4px;
+}
+
+/* --- Upgraded Slider --- */
+.slider-wrapper {
+    width: 100%;
+}
+
+.slider-container {
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.slider {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+/* --- Framework Interstitial Title --- */
+.framework-intro {
+    text-align: center;
+    padding: 50px 0 20px;
+}
+
+.framework-intro h2 {
+    font-size: 2.4rem;
+    color: var(--burgundy);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.bar {
+    width: 80px;
+    height: 4px;
+    background: var(--burgundy);
+    margin: 12px auto 25px;
+}
+
+.gold-bar {
+    background: var(--glossy-gold);
+}
+
+.framework-intro p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* --- Dashboard Technical Cards Grid --- */
+.dashboard-section {
+    padding: 30px 0 80px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.dash-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    border-top: 4px solid var(--burgundy);
+    padding: 35px;
+    position: relative;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.dash-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 26px rgba(0,0,0,0.12);
+}
+
+.full-width-card {
+    grid-column: span 2;
+    flex-direction: row;
+    gap: 35px;
+    align-items: center;
+}
+
+.card-content {
+    flex: 1;
+}
+
+.card-num {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: rgba(128, 0, 0, 0.06);
+}
+
+.dash-card h3 {
+    font-size: 1.4rem;
+    color: var(--burgundy);
+    margin-bottom: 15px;
+    padding-right: 40px;
+}
+
+.dash-card p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.dash-card ul {
+    list-style: none;
+}
+
+.dash-card ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.dash-card ul li::before {
+    content: "•";
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+.stats-list li.high-alert {
+    background: rgba(212, 60, 60, 0.08);
+    padding: 10px 10px 10px 25px;
+    border-left: 3px solid #d43c3c;
+    border-radius: 0 4px 4px 0;
+}
+
+.card-image-inline {
+    width: 35%;
+    height: 240px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.card-image-inline img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Mid-page wide image asset */
+.mid-page-banner {
+    grid-column: span 2;
+    width: 100%;
+    height:300px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.mid-page-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Footer --- */
+footer {
+    background: var(--dark-grey);
+    color: #aaa;
+    padding: 30px 0;
+    text-align: center;
+    border-top: 3px solid var(--gold);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Responsive view modifications */
+@media(max-width: 992px) {
+    .philosophy-grid, .full-width-card {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    .full-width-card, .mid-page-banner {
+        grid-column: span 1;
+    }
+    .card-image-inline {
+        width: 100%;
+        height: 200px;
+    }
+    .hamburger {
+        display: block;
+    }
+    .nav-menu {
+        display: none;
+    }
+}

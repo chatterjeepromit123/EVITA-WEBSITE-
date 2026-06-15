@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Evita Ship Management - Premium global maritime services, crew management, and technical ship operations. Built for excellence.">
+    <meta name="keywords" content="Ship Management, Maritime Services, Evita Shipping, Crew Management, Vessel Operations">
+    <title>Evita Ship Management | Maritime Excellence</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Global Font Override for Absolute Consistency */
+        body, h1, h2, h3, h4, h5, h6, p, a, span, div, strong {
+            font-family: 'Poppins', sans-serif;
+        }
+        .navbar {
+            background-color: #800020 !important; /* Solid Burgundy matching your brand */
+            opacity: 1 !important;
+            backdrop-filter: none !important; /* Eliminates semi-transparent blur effects */
+        }
+        
+        /* Video Section Layout Rules */
+        .video-intro-section {
+            position: relative;
+            overflow: hidden;
+            color: #ffffff;
+            text-align: center;
+            padding: 120px 20px;
+            margin-bottom: 50px;
+        }
+        .video-intro-section video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -2;
+            transform: translateX(-50%) translateY(-50%);
+            object-fit: cover;
+        }
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65);
+            z-index: -1;
+        }
+        .video-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .video-content h3 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        .video-content p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        .about-text h4 {
+            color: #d4af37;
+            font-size: 1.2rem;
+            margin-top: -10px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .about-text h3 {
+            margin-top: 30px;
+        }
+
+        /* New Card Grid System for Vision, Mission, and Core Values */
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 40px;
+            width: 100%;
+        }
+        .content-card {
+            display: flex;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            align-items: center;
+            min-height: 300px;
+        }
+        .content-card.reverse {
+            flex-direction: row-reverse;
+        }
+        .card-info {
+            flex: 1;
+            padding: 40px;
+        }
+        .card-info h3 {
+            margin-top: 0;
+            color: var(--burgundy, #800020);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .card-info p {
+            color: #475569;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+        .card-image {
+            flex: 1;
+            align-self: stretch;
+        }
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Enhanced Flex Layout for 5 Service Columns */
+        .services-grid {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .services-grid .service-card {
+            flex: 1 1 calc(33.333% - 25px);
+            min-width: 300px;
+            max-width: 380px;
+        }
+        /* Normalized Image Containers across all dynamically expanded cards */
+        .item1 img, .item2 img, .item3 img, .item4 img, .item5 img {
+            width: 100%;
+            height: 200px; 
+            object-fit: cover; 
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        /* Grid Framework for the Custom Interactive Suite Section */
+        .interactive-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+            gap: 25px; 
+            width: 100%;
+            margin-top: 40px;
+        }
+        .interactive-card {
+            background: var(--white); 
+            border-radius: 6px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06); 
+            transition: var(--transition);
+        }
+        .interactive-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(128,0,0,0.12);
+        }
+        .interactive-image-box img {
+            width: 100%; 
+            height: 190px; 
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .interactive-card:hover .interactive-image-box img {
+            transform: scale(1.05);
+        }
+
+        /* Responsive adjustment for Content Cards */
+        @media (max-width: 768px) {
+            .content-card, .content-card.reverse {
+                flex-direction: column;
+            }
+            .card-image {
+                height: 250px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <img src="logo\logo.png" alt="Evita Ship Management Logo">
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#fleet" class="nav-link">Our Fleet</a>
+                <a href="#contact" class="nav-link contact-btn">Contact Us</a>
+            </nav>
+            <div class="hamburger" id="hamburgerBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero-slider">
+        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1720761735305-025bd44521b2?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dGFua2VyfGVufDB8fDB8fHww');">
+            <div class="hero-content">
+                <h1>Navigating Global Oceans With <span class="gold-text">Precision</span></h1>
+                <p>World-class technical management and crew logistics tailored for the modern fleet.</p>
+                <a href="#services" class="btn-primary">Explore Services</a>
+            </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://i.ytimg.com/vi/77RDTWsA-0k/maxresdefault.jpg');">
+            <div class="hero-content">
+                <h1>Elite Crewing & <span class="gold-text">Maritime Logistics</span></h1>
+                <p>Connecting elite seafaring talent with state-of-the-art global vessel operations.</p>
+                <a href="#about" class="btn-primary">Learn More</a>
+            </div>
+        </div>
+        
+        <button class="slider-btn prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-btn next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <div class="card">
+                <div class="icon-wrapper">
+                    <i class="fa-regular fa-hand-sharp-o fa-star-half-stroke"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="custom-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499c.151-.312.596-.312.748 0l2.141 4.341 4.79.696c.343.05.48.474.231.716l-3.467 3.38.82 4.772c.059.344-.302.607-.609.445L12 18.238l-4.28 2.253c-.308.162-.667-.1-.609-.445l.82-4.772-3.467-3.38c-.249-.241-.112-.667.23-.717l4.79-.696 2.141-4.341Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.05 18H3.75A1.75 1.75 0 0 0 2 19.75v1c0 .414.336.75.75.75h14.5a.75.75 0 0 0 .75-.75v-1a1.75 1.75 0 0 0-1.75-1.75h-2.3" />
+                        </svg>
+                    </i>
+                </div>
+                <div class="card-content">
+                    <h3>Quality Management Systems</h3>
+                    <p><strong>ISO 9001:2015</strong> – Global quality management for consistent practices and delivery</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="custom-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+                    </svg>
+                </div>
+                <div class="card-content">
+                    <h3>Occupational Health and Safety Management Systems</h3>
+                    <p><strong>ISO 45001:2018</strong> – Comprehensive approach to managing occupational health and safety risks</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="custom-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 6h18m-18 0h-1.5M3 15a7.5 7.5 0 0 1 13.5-4.5L21 15M3 15h18M16.5 10.5V15" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v12M3 4.5h18v10.5H3V4.5Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 21V4.5A1.5 1.5 0 0 1 4.5 3H9a1.5 1.5 0 0 1 1.5 1.5v3A1.5 1.5 0 0 1 9 9H4.5M3 12h13.5A1.5 1.5 0 0 0 18 10.5v-3A1.5 1.5 0 0 0 16.5 6H3" />
+                    </svg>
+                </div>
+                <div class="card-content">
+                    <h3>Environment Management Systems</h3>
+                    <p><strong>ISO 14001:2015</strong> – systematic approach to managing environmental responsibilities and impacts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-intro-section">
+        <video autoplay loop muted playsinline>
+            <source src="IMAGES\video3 (1).mp4" type="video/mp4">
+        
+        </video>
+        <div class="video-overlay"></div>
+        <div class="video-content">
+            <h3>Your Cargo Deserves a Partner That Never Compromises</h3>
+            <p>Evita Ship Management Pvt. Ltd. — Mumbai's premier specialist in Gas Carriers, Oil Tankers, and Chemical Tankers. One-stop solutions. Zero shortcuts.</p>
+        </div>
+    </section>
+
+    <section id="about" class="about-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Evita</h2>
+                <div class="bar gold-bar"></div>
+            </div>
+            <div class="about-wrapper">
+                <div class="about-text">
+                    <h3>Who We Are</h3>
+                    <h4>Built for the World's Most Complex Vessels</h4>
+                    <p>Headquartered in Mumbai, Evita Ship Management has rapidly established itself as a top-tier partner for vessel owners and operators handling high-consequence liquid and gas cargos. We don't manage ordinary ships — we manage floating, high-pressure thermodynamic process plants.</p>
+                    
+                    <p>In the dynamic and highly demanding world of maritime trade, Evita Ship Management Pvt. Ltd. has rapidly emerged as a beacon of reliability, safety, and operational excellence. We offer a comprehensive suite of ship management and specialized maritime services, positioning ourselves as a pivotal partner for the global energy and chemical supply chains. Our unwavering commitment to quality and strict vetting standards has established us as a top-tier service provider for vessel owners and operators worldwide.</p>
+                    
+                    <p>What sets Evita Ship Management apart is our deep, specialized focus on complex asset classes, including Gas Carriers, Oil Tankers, and Chemical Tankers. Managing these sophisticated vessels requires an uncompromising approach to safety and compliance. Our team of seasoned marine professionals brings a wealth of technical expertise to the table, seamlessly navigating stringent international regulations, environmental mandates, and fluctuating market dynamics with absolute precision.</p>
+                    
+                    <p>As a true "one-stop solution" for specialized tonnage, we are committed to maximizing asset value and operational efficiency. By leveraging data-driven insights, Evita Ship Management optimizes routes, enhances fuel efficiency, and aggressively mitigates risks—ensuring that high-consequence cargo is delivered safely, sustainably, and on time, every time.</p>
+
+                    <div class="card-container">
+                        <div class="content-card">
+                            <div class="card-info">
+                                <h3>Our Vision</h3>
+                                <p>To be the world’s premier shipping company, connecting lives across the globe with seamless, reliable and sustainable logistics solutions.</p>
+                            </div>
+                            <div class="card-image">
+                                <img src="https://www.matrrix.in/images/blog/1000xnull/Why%20Vision%20Is%20an%20Integral%20Part%20of%20Successful%20Leadership%20(1)6602746dc809f1.04020882.jpg" alt="Global Benchmark Vision">
+                            </div>
+                        </div>
+
+                        <div class="content-card reverse">
+                            <div class="card-info">
+                                <h3>Our Mission</h3>
+                                <p>To empower the maritime industry by delivering innovative, high-quality ship management solutions with utmost efficiency.</p>
+                            </div>
+                            <div class="card-image">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmRs48l2rYbaGmY6xGpdSV6Pd1gfLPL_mogw&s" alt="Maritime Fleet Mission">
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top: 50px; text-align: center;">Core Values</h3>
+                    <h4 style="text-align: center; color: #d4af37; font-size: 1.2rem; font-weight: 500; margin-bottom: 30px;"><strong>The Five Pillars That Drive Everything We Do</strong></h4>
+                    
+                    <div class="card-container">
+                        <div class="content-card">
+                            <div class="card-info">
+                                <h3>Teamwork</h3>
+                                <p>A collaborative environment where every crew member and shore officer works toward a single goal.</p>
+                            </div>
+                            <div class="card-image">
+                                <img src="https://s7d9.scene7.com/is/image/roberthalfintl/the-value-of-teamwork-in-the-workplace-blog-RH-05-23-24.jpg:Large-1x?fmt=webp-alpha" alt="Teamwork">
+                            </div>
+                        </div>
+
+                        <div class="content-card reverse">
+                            <div class="card-info">
+                                <h3>Integrity</h3>
+                                <p>Honest, transparent dealings in every commercial, technical, and crewing interaction.</p>
+                            </div>
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Integrity and Transparency">
+                            </div>
+                        </div>
+
+                        <div class="content-card">
+                            <div class="card-info">
+                                <h3>Sustainability</h3>
+                                <p>Eco-friendly practices embedded into operations, not bolted on as an afterthought.</p>
+                            </div>
+                            <div class="card-image">
+                                <img src="https://www.icl-group.com/wp-content/uploads/2022/02/sustainability-blog6-e1713807272602.jpg" alt="Eco Sustainability">
+                            </div>
+                        </div>
+
+                        <div class="content-card reverse">
+                            <div class="card-info">
+                                <h3>Operational Excellence</h3>
+                                <p>Continuous improvement across all technical, crewing, and safety functions.</p>
+                            </div>
+                            <div class="card-image">
+                                <img src="https://smeindia.org.in/images/oow_course_leadership_navigation_skills_Banner.webp" alt="Operational Excellence">
+                            </div>
+                        </div>
+
+                        <div class="content-card">
+                            <div class="card-info">
+                                <h3>Customer Centric</h3>
+                                <p>Your requirements are our priority — every decision is made with your asset in mind.</p>
+                            </div>
+                            <div class="card-image">
+                                <img src="https://www.signium.com/wp-content/uploads/2023/11/Redefining-business-success-scaled.jpeg" alt="Customer Centric Focus">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="excellence-suite" class="about-section section-padding" style="background-color: var(--light-grey); border-top: 1px solid rgba(0,0,0,0.05);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Vessel, Our Responsibility.</h2>
+                <div class="bar gold-bar"></div>
+            </div>
+            
+            <div class="about-wrapper" style="flex-direction: column; gap: 20px;">
+                <div class="about-text" style="text-align: center; max-width: 900px; margin: 0 auto;">
+                    <h3>Total Maritime Excellence.</h3>
+                    <p style="font-size: 1.1rem; color: #475569; line-height: 1.7; margin-bottom: 20px;">
+                        Evita Ship Management Pvt Ltd delivers end-to-end technical, crew, commercial, and STS services — built for ship owners who demand nothing less than operational perfection.
+                    </p>
+                    <div style="font-weight: 600; color: var(--burgundy); font-size: 1rem; letter-spacing: 1px; display: inline-flex; align-items: center; gap: 8px;">
+                    </div>
+                </div>
+
+                <div class="interactive-grid">
+                    <div class="interactive-card">
+                        <div class="interactive-image-box">
+                            <img src="https://images.unsplash.com/photo-1685720543979-e9524b3b0176?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2hpcCUyMGVuZ2luZXxlbnwwfHwwfHx8MA%3D%3D" alt="Technical Vessel Oversight">
+                        </div>
+                        <div style="padding: 25px;">
+                            <h4 style="color: var(--burgundy); font-weight: 700; font-size: 1.25rem; margin-bottom: 10px;">Technical Management</h4>
+                            <p style="color: #555; font-size: 0.95rem; line-height: 1.5;">Proactive inspections, maintenance planning, and cost control.</p>
+                        </div>
+                    </div>
+
+                    <div class="interactive-card">
+                        <div class="interactive-image-box">
+                            <img src="https://cslships.com/wp-content/uploads/2023/10/2020-07-31-CASI-Mooring-Training-1.jpg" alt="Global Seafarer Operations">
+                        </div>
+                        <div style="padding: 25px;">
+                            <h4 style="color: var(--burgundy); font-weight: 700; font-size: 1.25rem; margin-bottom: 10px;">Crew Management</h4>
+                            <p style="color: #555; font-size: 0.95rem; line-height: 1.5;">Global recruitment, rigorous vetting, and continuous training.</p>
+                        </div>
+                    </div>
+
+                    <div class="interactive-card">
+                        <div class="interactive-image-box">
+                            <img src="https://ap-southeast-2-seek-apac.graphassets.com/AEzBCRO50TYyqbV6XzRDQz/resize=fit:crop,width:1280,height:660/fiHpUylTQyoJGKHSjYML" alt="Commercial Fleet Strategy">
+                        </div>
+                        <div style="padding: 25px;">
+                            <h4 style="color: var(--burgundy); font-weight: 700; font-size: 1.25rem; margin-bottom: 10px;">Commercial Management</h4>
+                            <p style="color: #555; font-size: 0.95rem; line-height: 1.5;">Seasoned professionals, Tier-1 charterers, 24/7 monitoring.</p>
+                        </div>
+                    </div>
+
+                    <div class="interactive-card">
+                        <div class="interactive-image-box">
+                            <img src="https://www.safests.com/wp-content/uploads/2020/09/Dakar-2-scaled.jpeg" alt="Compliant STS Transfers">
+                        </div>
+                        <div style="padding: 25px;">
+                            <h4 style="color: var(--burgundy); font-weight: 700; font-size: 1.25rem; margin-bottom: 10px;">STS Operations</h4>
+                            <p style="color: #555; font-size: 0.95rem; line-height: 1.5;">Safe, compliant ship-to-ship transfers for liquid and dry bulk.</p>
+                        </div>
+                    </div>
+                      <div class="interactive-card">
+                        <div class="interactive-image-box">
+                            <img src="https://www.trivalleycareercenter.org/wp-content/uploads/2018/12/Handshake3-scaled.jpg" alt="Sale & Purchase">
+                        </div>
+                        <div style="padding: 25px;">
+                            <h4 style="color: var(--burgundy); font-weight: 700; font-size: 1.25rem; margin-bottom: 10px;">Sale & Purchase</h4>
+                            <p style="color: #555; font-size: 0.95rem; line-height: 1.5;">Your Strategic Partner in Sale & Purchase</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-text" style="text-align: center; max-width: 900px; margin: 40px auto 0; padding-top: 30px; border-top: 1px solid rgba(0,0,0,0.08);">
+                    <h3>Our Services</h3>
+                    <h4 style="font-weight: 500; font-size: 1.3rem; margin-bottom: 15px; color: var(--burgundy);">A Complete Maritime Management Suite</h4>
+                    <p style="color: #555; font-size: 1rem; line-height: 1.6;">
+                        From technical oversight to commercial strategy, Evita Ship Management provides a fully integrated solution across every dimension of vessel ownership and operation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services" class="services-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="text-white">Our Core Expertise</h2>
+                <div class="bar gold-bar"></div>
+            </div>
+            <div class="services-grid">
+                <a href="technical1.html" class="service-card" style="text-decoration: none;">
+                    <div class="icon-box"><i class="fas fa-anchor"></i></div>
+                    <div class="item1"><img src="IMAGES\WhatsApp Image 2026-06-11 at 16.13.42.jpeg" alt="Technical Management"></div>
+                    <h3>Technical</h3>
+                    <p>Engineering excellence, regular dry-docking scheduling, and strict asset maintenance policies ensuring peak vessel performance.</p>
+                </a>
+
+                <a href="crewing1.html" class="service-card" style="text-decoration: none;">
+                    <div class="icon-box"><i class="fas fa-users"></i></div>
+                    <div class="item2"><img src="IMAGES\WhatsApp Image 2026-06-11 at 16.12.11.jpeg" alt="Crew Management"></div>
+                    <h3>Crewing</h3>
+                    <p>Global sourcing, rigorous training, and complete payroll administration of top-tier crew networks worldwide.</p>
+                </a>
+                
+                <a href="sale.html" class="service-card" style="text-decoration: none;">
+                    <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
+                    <div class="item3"><img src="https://t4.ftcdn.net/jpg/09/69/34/27/360_F_969342778_BCPcWUTyPG7RsXUUPaJ2jDNiiCzrtyOd.jpg" alt="Sale & Purchase"></div>
+                    <h3>Sale & Purchase</h3>
+                    <p>Your Strategic Partner in Ship Sale & Purchase</p>
+                </a>
+
+                <a href="commercial_management.html" class="service-card" style="text-decoration: none;">
+                    <div class="icon-box"><i class="fas fa-chart-line"></i></div>
+                    <div class="item4"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Commercial Management"></div>
+                    <h3>Commercial</h3>
+                    <p>Maximized earnings and spot/time charter optimization utilizing deep market intelligence and premium routing networks.</p>
+                </a>
+
+                <a href="STS_oprations.html" class="service-card" style="text-decoration: none;">
+                    <div class="icon-box"><i class="fas fa-exchange-alt"></i></div>
+                    <div class="item5"><img src="https://sinay.ai/wp-content/uploads/2022/03/shutterstock_1701878191-scaled.jpg" alt="STS Operations"></div>
+                    <h3>STS Operations</h3>
+                    <p>Flawlessly planned, zero-spill Ship-to-Ship transfer deployments matching stringently monitored liquid cargo guidelines.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="fleet" class="fleet-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Managed Fleet Profile</h2>
+                <div class="bar gold-bar"></div>
+            </div>
+            <div class="fleet-grid">
+                <div class="fleet-item">
+                    <img src="IMAGES\CHEMICAL TANKER.webp" alt="Chemical Ship">
+                    <div class="fleet-overlay">
+                        <h4>Chemical Tankers : 3</h4>
+                    </div>
+                </div>
+                
+                <div class="fleet-item">
+                    <img src="IMAGES\OIL TANKER.avif" alt="Crude Oil Tanker">
+                    <div class="fleet-overlay">
+                        <h4> Oil Tankers : 5</h4>
+                    </div>
+                </div>
+                 <div class="fleet-item">
+                    <img src="IMAGES\gas carrier.webp" alt="Gas Carrier">
+                    <div class="fleet-overlay">
+                        <h4> Gas Carriers : 2</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Connect Globally</h2>
+                <div class="bar gold-bar"></div>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Headquarters</h3>
+                    <p><i class="fas fa-map-marker-alt"></i>503-504, Sorrento Building, Hiranandani Gardens, Powai, Mumbai, Maharashtra-400076
+                   </p>
+                    <p><i class="fas fa-phone"></i>+91-9867103744</p>
+                    <p><i class="fas fa-envelope"></i> management@evitashipping.in</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 Evita Ship Management. All Rights Reserved.</p>
+            <p>Designed with Maritime Excellence Standards.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
